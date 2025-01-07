@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:bloc_basic/bloc/favourite_app_bloc.dart';
+import 'package:bloc_basic/repository/favourite_repository.dart';
 import 'package:bloc_basic/views/favourite_screen.dart';
 
 void main() {
@@ -12,9 +14,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-        providers: [
-          BlocProvider(create: (_) => FavouriteBloc(FavouriteRepository())..add(FetchFavouriteList())),
-        ],
+      providers: [
+        BlocProvider(create: (_) => FavouriteBloc(FavouriteRepository())),
+      ],
       child: MaterialApp(
         title: 'Flutter Demo',
         themeMode: ThemeMode.dark,
